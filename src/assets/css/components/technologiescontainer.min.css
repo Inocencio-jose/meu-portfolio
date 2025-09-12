@@ -1,0 +1,1 @@
+@use '../variables'{}@use '../mixins'{}.technologies-container{margin-bottom:1rem}.technologies-container .technologies-grid{display:grid;flex-wrap:wrap;gap:1.5rem}
