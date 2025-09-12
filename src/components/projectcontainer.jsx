@@ -219,7 +219,7 @@ function ProjectContainer() {
               <h2>{selectedProject.title}</h2>
               <p>{selectedProject.details}</p>
               <p>Estado: <span className={selectedProject.estado}>{selectedProject.estado}</span></p>
-              <a href={selectedProject.link}>{selectedProject.link}</a><br />
+              <p>Vistite em: <a href={selectedProject.link}>{selectedProject.link}</a></p><br />
               <button className="btn" onClick={() => setSelectedProject(null)}>
                 Fechar Detalhes
               </button>
