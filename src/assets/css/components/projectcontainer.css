@@ -1,1 +1,4 @@
-@use '../variables' {}@use '../mixins' {}
+@charset "UTF-8";
+@use '../variables' {}@use '../mixins' {}.Concluído {
+  background-color: #2ff4ca;
+}
