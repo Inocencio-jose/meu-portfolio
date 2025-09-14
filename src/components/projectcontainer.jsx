@@ -152,7 +152,8 @@ const projects = [
     estado: "Concluído",
     details:
       "Bot multifuncional em Node.js integrado à API do Telegram, criado para gerenciar o grupo da AJ Freenet com automações e interações dinâmicas. Bot em Node.js para automação e gerenciamento de comunidades no Telegram.",
-    link: "https://t.me/CASSIEF_bot"
+    link: "https://t.me/CASSIEF_bot",
+    link2: "https://github.com/Inocencio-jose/CASSIEF"
   }
 ];
 
@@ -278,6 +279,11 @@ function ProjectContainer() {
               <p>Estado: <span className={selectedProject.estado}>{selectedProject.estado}</span></p>
               {selectedProject.link && (
                 <p>Visite em: <a href={selectedProject.link}>{selectedProject.link}</a></p>
+                
+              )}
+              {selectedProject.link && (
+                <p>Visite em: <a href={selectedProject.link}>{selectedProject.link2}</a></p>
+                
               )}
               <br />
               <button className="btn" onClick={() => setSelectedProject(null)}>
