@@ -1,17 +1,68 @@
-# meu-portfolio
-Meu portfolio
+# 🧑‍💻 Meu Portfólio – Inocêncio José
+
+Este é o **meu portfólio pessoal** desenvolvido com **React + Vite**, hospedado no **Netlify**.  
+Aqui apresento meus projetos, minhas habilidades e um resumo do meu perfil profissional.
+
+🔗 **Acesse online:** [inocenciojose.netlify.app](https://inocenciojose.netlify.app)
 
 ---
 
-# React + Vite
+## ✨ Tecnologias utilizadas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- **React** – criação da interface
+- **Vite** – build rápido e ambiente de desenvolvimento
+- **Sass** – estilização com CSS pré-processado
+- **Netlify** – hospedagem e deploy contínuo
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Como rodar localmente
 
-## Expanding the ESLint configuration
+> Pré-requisitos: **Node.js** e **Git** instalados.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+# Clonar este repositório
+git clone https://github.com/Inocencio-jose/meu-portfolio.git
+
+# Entrar na pasta
+cd meu-portfolio
+
+# Instalar dependências
+npm install
+
+# Rodar em ambiente de desenvolvimento
+npm run dev
+```
+
+O projeto estará disponível em `http://localhost:5173/` (ou porta que o Vite indicar).
+
+---
+
+## 📄 Estrutura principal
+
+```
+src/
+ ├─ assets/        # imagens, pdfs e estilos
+ ├─ components/    # componentes React reutilizáveis
+ ├─ App.jsx        # componente raiz
+ └─ main.jsx       # ponto de entrada da aplicação
+```
+
+---
+
+## 📂 Deploy
+
+O site é atualizado automaticamente sempre que faço **push** na branch `main`:
+
+- Repositório GitHub: [github.com/Inocencio-jose/meu-portfolio](https://github.com/Inocencio-jose/meu-portfolio)
+- Hospedagem: [Netlify](https://www.netlify.com/)
+
+---
+
+## 📧 Contato
+
+- **E-mail:** [inocenciojose93497@gmail.com]
+
+---
+
+> 🔹 *Este portfólio é um projeto em constante evolução. Novos projetos e melhorias visuais serão adicionados ao longo do tempo.*
