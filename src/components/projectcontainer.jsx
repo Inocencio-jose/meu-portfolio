@@ -1,12 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../assets/css/components/projectcontainer.sass";
 
+/* ------------------ Componente de Slider ------------------ */
+function ImageSlider({ images }) {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 2000); // troca a cada 2 segundos
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <div style={{ position: "relative", width: "100%", borderRadius: "8px", overflow: "hidden" }}>
+      <img
+        src={images[index]}
+        alt=""
+        style={{
+          width: "100%",
+          display: "block",
+          transition: "opacity 0.5s ease",
+        }}
+      />
+    </div>
+  );
+}
+
+/* ------------------ Dados dos Projetos ------------------ */
 const projects = [
   {
     id: 1,
     title: "SILVA",
-    image: "https://picsum.photos/400/200?random=1",
+    images: [
+      "https://picsum.photos/400/200?random=11",
+      "https://picsum.photos/400/200?random=12",
+      "https://picsum.photos/400/200?random=13",
+    ],
     shortDesc: "Plataforma colaborativa de segurança pública.",
     estado: "Ainda em Desenvolvimento",
     details:
@@ -15,7 +46,11 @@ const projects = [
   {
     id: 2,
     title: "SpotiLite-PWA",
-    image: "https://picsum.photos/400/200?random=2",
+    images: [
+      "https://picsum.photos/400/200?random=21",
+      "https://picsum.photos/400/200?random=22",
+      "https://picsum.photos/400/200?random=23",
+    ],
     shortDesc: "Player de música leve e moderno inspirado no design do Spotify.",
     estado: "Concluído",
     details:
@@ -25,7 +60,11 @@ const projects = [
   {
     id: 3,
     title: "Orion EXCHANGER",
-    image: "https://picsum.photos/400/200?random=3",
+    images: [
+      "https://picsum.photos/400/200?random=31",
+      "https://picsum.photos/400/200?random=32",
+      "https://picsum.photos/400/200?random=33",
+    ],
     shortDesc: "Ferramenta de conversão em lote.",
     estado: "Concluído",
     details:
@@ -34,7 +73,11 @@ const projects = [
   {
     id: 4,
     title: "AJ Freenet",
-    image: "https://picsum.photos/400/200?random=4",
+    images: [
+      "https://picsum.photos/400/200?random=41",
+      "https://picsum.photos/400/200?random=42",
+      "https://picsum.photos/400/200?random=43",
+    ],
     shortDesc: "VPN rápida e segura.",
     estado: "Concluído",
     details:
@@ -44,7 +87,11 @@ const projects = [
   {
     id: 5,
     title: "SAIPH",
-    image: "https://picsum.photos/400/200?random=5",
+    images: [
+      "https://picsum.photos/400/200?random=51",
+      "https://picsum.photos/400/200?random=52",
+      "https://picsum.photos/400/200?random=53",
+    ],
     shortDesc: "Chatbot acadêmico com Node.js e Botpress.",
     estado: "Ainda em Desenvolvimento",
     details:
@@ -53,7 +100,11 @@ const projects = [
   {
     id: 6,
     title: "Landing Page Céu Digital",
-    image: "https://picsum.photos/400/200?random=6",
+    images: [
+      "https://picsum.photos/400/200?random=61",
+      "https://picsum.photos/400/200?random=62",
+      "https://picsum.photos/400/200?random=63",
+    ],
     shortDesc: "Página informativa moderna e responsiva.",
     estado: "Concluído",
     details:
@@ -63,7 +114,11 @@ const projects = [
   {
     id: 7,
     title: "Sistemas de Inscrição Online",
-    image: "https://picsum.photos/400/200?random=7",
+    images: [
+      "https://picsum.photos/400/200?random=71",
+      "https://picsum.photos/400/200?random=72",
+      "https://picsum.photos/400/200?random=73",
+    ],
     shortDesc: "Plataformas acadêmicas com gestão de inscrições.",
     estado: "Concluídos",
     details:
@@ -72,7 +127,11 @@ const projects = [
   {
     id: 8,
     title: "Cosmo Clima",
-    image: "https://picsum.photos/400/200?random=8",
+    images: [
+      "https://picsum.photos/400/200?random=81",
+      "https://picsum.photos/400/200?random=82",
+      "https://picsum.photos/400/200?random=83",
+    ],
     shortDesc: "Aplicativo de clima interativo.",
     estado: "Concluído",
     details:
@@ -82,7 +141,11 @@ const projects = [
   {
     id: 9,
     title: "CASSIEF",
-    image: "https://picsum.photos/400/200?random=9",
+    images: [
+      "https://picsum.photos/400/200?random=91",
+      "https://picsum.photos/400/200?random=92",
+      "https://picsum.photos/400/200?random=93",
+    ],
     shortDesc: "Bot multifuncional no Telegram.",
     estado: "Concluído",
     details:
@@ -160,11 +223,7 @@ function ProjectContainer() {
                   }}
                   onClick={() => setSelectedProject(proj)}
                 >
-                  <img
-                    src={proj.image}
-                    alt={proj.title}
-                    style={{ width: "100%", borderRadius: "8px" }}
-                  />
+                  <ImageSlider images={proj.images} />
                   <h3>{proj.title}</h3>
                   <p>{proj.shortDesc}</p>
                 </motion.div>
@@ -211,15 +270,14 @@ function ProjectContainer() {
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
               }}
             >
-              <img
-                src={selectedProject.image}
-                alt={selectedProject.title}
-                style={{ width: "100%", borderRadius: "8px" }}
-              />
+              <ImageSlider images={selectedProject.images} />
               <h2>{selectedProject.title}</h2>
               <p>{selectedProject.details}</p>
               <p>Estado: <span className={selectedProject.estado}>{selectedProject.estado}</span></p>
-              <p>Vistite em: <a href={selectedProject.link}>{selectedProject.link}</a></p><br />
+              {selectedProject.link && (
+                <p>Visite em: <a href={selectedProject.link}>{selectedProject.link}</a></p>
+              )}
+              <br />
               <button className="btn" onClick={() => setSelectedProject(null)}>
                 Fechar Detalhes
               </button>
