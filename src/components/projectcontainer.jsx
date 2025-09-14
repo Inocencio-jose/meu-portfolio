@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../assets/css/components/projectcontainer.sass";
+import { link } from "joi";
 
 /* ------------------ Componente de Slider ------------------ */
 function ImageSlider({ images }) {
@@ -122,7 +123,8 @@ const projects = [
     shortDesc: "Plataformas acadêmicas com gestão de inscrições.",
     estado: "Concluídos",
     details:
-      "Plataformas acadêmicas com autenticação segura, gestão de inscrições e dashboards administrativos para institutos educacionais. Soluções robustas para gestão acadêmica, com autenticação segura e dashboards administrativos."
+      "Plataformas acadêmicas com autenticação segura, gestão de inscrições e dashboards administrativos para institutos educacionais. Soluções robustas para gestão acadêmica, com autenticação segura e dashboards administrativos.",
+    link: "https://github.com/Inocencio-jose/instituto-carlos-nunes"
   },
   {
     id: 8,
