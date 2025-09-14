@@ -11,8 +11,9 @@ const Sidebar = () => {
       <p className="title">Desenvolvedor</p>
       <SocialNetwork/>
       <InformationContainer/>
-      <a href="../assets/documents/Perfil Profissional.pdf" className="btn" target="_blank">
-        Descarregar Perfil
+      <a
+        href="/Perfil-Profissional.pdf" className="btn" target="_blank" rel="noopener noreferrer">
+        Ver Perfil
       </a>
     </aside>
   );
