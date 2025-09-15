@@ -138,7 +138,8 @@ const projects = [
     estado: "Concluído",
     details:
       "Aplicação de clima interativa desenvolvida com HTML, CSS, JavaScript e a API OpenWeather, fornecendo dados meteorológicos em tempo real. Aplicativo de clima com interface moderna e dados em tempo real via API OpenWeather.",
-    link: "https://cosmoclima.netlify.app"
+    link: "https://cosmoclima.netlify.app",
+    link2: "https://github.com/Inocencio-jose/cosmo-clima/"
   },
   {
     id: 9,
