@@ -1,2 +1,44 @@
 @use '../variables'
 @use '../mixins'
+
+.about-container
+    padding: 0
+    margin-bottom: 2rem
+
+    h2
+        color: variables.$text-color-light
+        font-size: 2rem
+        font-weight: 700
+        margin-bottom: 1.5rem
+        letter-spacing: -0.01em
+        position: relative
+        padding-bottom: 1rem
+
+        &:after
+            content: ""
+            background: variables.$gradient
+            height: 4px
+            width: 60px
+            position: absolute
+            bottom: 0
+            left: 0
+            border-radius: 2px
+
+    p
+        color: variables.$text-color-secondary
+        line-height: 1.8rem
+        font-size: 1.05rem
+        text-align: justify
+
+    @media (max-width: variables.$bp-md)
+        h2
+            font-size: 1.75rem
+        p
+            font-size: 1rem
+            text-align: left
+            line-height: 1.75rem
+
+    @media (min-width: variables.$bp-lg)
+        p
+            font-size: 1.1rem
+            line-height: 1.9rem

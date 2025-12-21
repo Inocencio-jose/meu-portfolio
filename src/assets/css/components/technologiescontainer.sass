@@ -2,27 +2,72 @@
 @use '../mixins'
 
 .technologies-container
-    margin-bottom: 1rem
+    margin-bottom: 2rem
+
+    h2
+        color: variables.$text-color-light
+        font-size: 2rem
+        font-weight: 700
+        margin-bottom: 1.5rem
+        letter-spacing: -0.01em
+        position: relative
+        padding-bottom: 1rem
+
+        &:after
+            content: ""
+            background: variables.$gradient
+            height: 4px
+            width: 60px
+            position: absolute
+            bottom: 0
+            left: 0
+            border-radius: 2px
 
     .technologies-grid
-        display: flex
-        flex-wrap: wrap
-        gap: 1.5rem
+        display: grid
+        grid-template-columns: 1fr
+        gap: 1.25rem
 
         .technology-card
-            @include mixins.center
-            gap: 1rem
-            padding: 1rem
-            border: 1px solid #333
-            width: 45%
+            background: variables.$bg-color-secondary
+            display: flex
+            align-items: center
+            gap: 1.25rem
+            padding: 1.5rem
+            border: 1px solid rgba(255, 255, 255, 0.08)
             border-radius: variables.$card-border-radius
+            transition: all 0.3s ease
+            cursor: pointer
+            box-shadow: variables.$shadow-sm
 
-            h3
-                color: variables.$text-color
-                margin-bottom: 1rem
+            &:hover
+                background: variables.$bg-color-hover
+                transform: translateX(8px)
+                border-color: rgba(255, 255, 255, 0.15)
+                box-shadow: variables.$shadow-md
 
             svg
-                font-size: 6rem   
+                font-size: 3.5rem
+                flex-shrink: 0
+                transition: transform 0.3s ease
+
+            &:hover svg
+                transform: scale(1.1)
+
+            .technology-info
+                flex: 1
+
+                h3
+                    color: variables.$text-color-light
+                    margin-bottom: 0.5rem
+                    font-size: 1.1rem
+                    font-weight: 600
+
+                p
+                    color: variables.$text-color-secondary
+                    font-size: 0.9rem
+                    line-height: 1.6rem
+                    margin: 0
 
         #html
             svg
@@ -41,16 +86,52 @@
 
         #sass
             svg
-                color: #fc04c6
+                color: #cc6699
 
         #php
             svg
-                color: #ad8ee6
+                color: #777bb4
 
         #mysql
             svg
-                color: #00618a
+                color: #00758f
 
         #react
             svg
                 color: #61dafb
+
+    @media (min-width: variables.$bp-sm)
+        .technologies-grid
+            grid-template-columns: repeat(2, 1fr)
+            gap: 1.5rem
+
+            .technology-card
+                flex-direction: column
+                text-align: center
+                padding: 2rem 1.5rem
+
+                svg
+                    font-size: 4rem
+
+                .technology-info
+                    h3
+                        font-size: 1.15rem
+
+    @media (min-width: variables.$bp-lg)
+        .technologies-grid
+            grid-template-columns: repeat(2, 1fr)
+            gap: 1.75rem
+
+            .technology-card
+                padding: 2rem
+
+                svg
+                    font-size: 4.5rem
+
+    @media (min-width: variables.$bp-xl)
+        .technologies-grid
+            grid-template-columns: repeat(2, 1fr)
+            gap: 2rem
+
+            .technology-card
+                padding: 2.25rem

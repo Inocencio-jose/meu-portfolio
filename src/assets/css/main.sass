@@ -1,11 +1,31 @@
 @use 'variables'
+
 *
     padding: 0
     margin: 0
-    font-family: variables.$font-stack
     box-sizing: border-box
-body
-    background-color: variables.$body-bg-color
 
-a,  svg
-    transition: .4s
+html
+    scroll-behavior: smooth
+
+body
+    font-family: variables.$font-stack
+    background: variables.$body-bg-color
+    color: variables.$text-color
+    line-height: 1.6
+    overflow-x: hidden
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    min-height: 100vh
+
+a, svg, button
+    transition: all 0.3s ease
+
+img
+    max-width: 100%
+    height: auto
+    display: block
+    border-radius: 8px
+
+button
+    font-family: inherit

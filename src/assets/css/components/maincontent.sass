@@ -2,35 +2,97 @@
 @use '../mixins'
 
 #main-content
-    background-color: variables.$bg-color
+    background: variables.$bg-color
     flex: 2 1 0
     border-radius: variables.$container-border-radius
-    padding: 3rem
+    padding: 2.5rem
+    min-width: 320px
+    box-shadow: variables.$shadow-lg
+    border: 1px solid rgba(255, 255, 255, 0.05)
+    backdrop-filter: blur(10px)
 
     section
         display: flex
         flex-direction: column
+        margin-bottom: 3rem
+
+        &:last-child
+            margin-bottom: 0
 
     h2
-        color: variables.$text-color
-        font-size: 2.2rem
-        margin-bottom: 1.3rem
+        color: variables.$text-color-light
+        font-size: 2rem
+        font-weight: 700
+        margin-bottom: 1.5rem
         @include mixins.center
         justify-content: start
         gap: 1rem
+        letter-spacing: -0.01em
+        position: relative
+        padding-bottom: 1rem
 
         &:after
            @include mixins.gradient-border
+           position: absolute
+           bottom: 0
+           left: 0
 
     p
         color: variables.$text-color-secondary
-        margin-bottom: 1rem
-        line-height: 1.4rem
+        margin-bottom: 1.5rem
+        line-height: 1.8rem
+        font-size: 1rem
 
     .btn
         @include mixins.btn
-        width: 25%
-        
+        width: auto
+        display: inline-block
+        padding: 1rem 2rem
+        font-weight: 600
+        transition: all 0.3s ease
+        border: none
+        cursor: pointer
+        font-size: 1rem
+        letter-spacing: 0.3px
+        box-shadow: variables.$shadow-md
+
+        &:hover
+            transform: translateY(-2px)
+            box-shadow: variables.$shadow-lg
+    
+    @media (max-width: variables.$bp-md)
+        flex: 1 1 100%
+        padding: 1.5rem
+        min-width: auto
+        width: 100%
+
+        h2
+            font-size: 1.75rem
+            margin-bottom: 1.25rem
+
+        .btn
+            width: 100%
+            text-align: center
+
+        p
+            line-height: 1.75rem
+            font-size: 0.95rem
+
+        section
+            margin-bottom: 2rem
+    
+    @media (min-width: variables.$bp-lg)
+        padding: 3rem
+        h2
+            font-size: 2.25rem
+        .btn
+            width: auto
+            padding: 1.1rem 2.2rem
+
+    @media (min-width: variables.$bp-xl)
+        padding: 3.5rem
+        h2
+            font-size: 2.5rem
            
                 
             

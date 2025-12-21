@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../assets/css/components/projectcontainer.sass";
-import { link } from "joi";
 
 /* ------------------ Componente de Slider ------------------ */
 function ImageSlider({ images }) {
@@ -187,12 +186,15 @@ function ProjectContainer() {
               left: 0,
               width: "100vw",
               height: "100vh",
-              background: "rgba(0, 0, 0, 0.8)",
+              background: "rgba(0, 0, 0, 0.9)",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              justifyContent: "center",
+              justifyContent: "flex-start",
               zIndex: 1000,
+              backdropFilter: "blur(10px)",
+              paddingTop: "2rem",
+              overflowY: "auto",
             }}
           >
             <div className="fullscreen-header">
@@ -201,30 +203,12 @@ function ProjectContainer() {
               </button>
             </div>
 
-            <div
-              className="projects-grid"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-                gap: "20px",
-                padding: "20px",
-                maxWidth: "1200px",
-                width: "100%",
-                overflowY: "auto",
-              }}
-            >
+            <div className="projects-grid">
               {projects.map((proj) => (
                 <motion.div
                   className="project-card"
                   key={proj.id}
-                  whileHover={{ scale: 1.05 }}
-                  style={{
-                    background: "#141414ff",
-                    borderRadius: "10px",
-                    padding: "15px",
-                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-                    cursor: "pointer",
-                  }}
+                  whileHover={{ scale: 1.02 }}
                   onClick={() => setSelectedProject(proj)}
                 >
                   <ImageSlider images={proj.images} />
@@ -245,51 +229,51 @@ function ProjectContainer() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            onClick={() => setSelectedProject(null)}
             style={{
               position: "fixed",
               top: 0,
               left: 0,
               width: "100vw",
               height: "100vh",
-              background: "rgba(0, 0, 0, 0.8)",
+              background: "rgba(0, 0, 0, 0.85)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               zIndex: 1001,
+              backdropFilter: "blur(8px)",
             }}
           >
             <motion.div
               className="modal-card"
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
               style={{
-                background: "#141414ff",
-                borderRadius: "10px",
-                padding: "20px",
-                maxWidth: "600px",
+                maxWidth: "700px",
                 width: "90%",
-                maxHeight: "80vh",
+                maxHeight: "85vh",
                 overflowY: "auto",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+                padding: "2.5rem",
+                position: "relative",
               }}
             >
               <ImageSlider images={selectedProject.images} />
               <h2>{selectedProject.title}</h2>
               <p>{selectedProject.details}</p>
-              <p>Estado: <span className={selectedProject.estado}>{selectedProject.estado}</span></p>
+              <p>Estado: <span className={`status-badge ${selectedProject.estado.replace(/\s+/g, '-').toLowerCase()}`}>{selectedProject.estado}</span></p>
               {selectedProject.link && (
-                <p>Visite em: <a href={selectedProject.link}>{selectedProject.link}</a></p>
-                
+                <p>Visite em: <a href={selectedProject.link} target="_blank" rel="noopener noreferrer">{selectedProject.link}</a></p>
               )}
-              {selectedProject.link && (
-                <p>Visite em: <a href={selectedProject.link}>{selectedProject.link2}</a></p>
-                
+              {selectedProject.link2 && (
+                <p>GitHub: <a href={selectedProject.link2} target="_blank" rel="noopener noreferrer">{selectedProject.link2}</a></p>
               )}
-              <br />
-              <button className="btn" onClick={() => setSelectedProject(null)}>
-                Fechar Detalhes
-              </button>
+              <div style={{ marginTop: "1.5rem" }}>
+                <button className="btn" onClick={() => setSelectedProject(null)}>
+                  Fechar Detalhes
+                </button>
+              </div>
             </motion.div>
           </motion.div>
         )}

@@ -1,19 +1,47 @@
 @use '../variables' as variables
 
 #portfolio
-  display: flex
-  flex-wrap: wrap
-  padding: 3rem
-  gap: 3rem
+  min-height: 100vh
+  background: variables.$body-bg-color
+  color: variables.$text-color
 
-  h1
-    width: 100%
-    font-size: 4rem
-    margin-bottom: 0rem
+.container
+  max-width: 1200px
+  margin: 0 auto
+  padding: 0 2rem
 
-    // Gradient on text
-    background: variables.$gradient
-    -webkit-background-clip: text
-    background-clip: text
-    -webkit-text-fill-color: transparent
-    color: transparent
+  @media (max-width: variables.$bp-md)
+    padding: 0 1.5rem
+
+  @media (max-width: variables.$bp-sm)
+    padding: 0 1rem
+
+.section-title
+  font-size: 2.5rem
+  font-weight: 700
+  text-align: center
+  margin-bottom: 1rem
+  background: variables.$gradient
+  -webkit-background-clip: text
+  background-clip: text
+  -webkit-text-fill-color: transparent
+  color: transparent
+
+  @media (max-width: variables.$bp-md)
+    font-size: 2rem
+
+  @media (max-width: variables.$bp-sm)
+    font-size: 1.75rem
+
+.section-subtitle
+  text-align: center
+  color: variables.$text-color-secondary
+  font-size: 1.1rem
+  margin-bottom: 3rem
+  max-width: 600px
+  margin-left: auto
+  margin-right: auto
+
+  @media (max-width: variables.$bp-md)
+    font-size: 1rem
+    margin-bottom: 2rem

@@ -19,6 +19,8 @@
     "sass": "^1.92.1"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.2",
+    "eslint": "^9.39.2",
     "vite": "^7.1.2"
   }
 }

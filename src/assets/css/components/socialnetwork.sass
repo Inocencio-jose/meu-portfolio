@@ -3,34 +3,99 @@
 
 #social-networks
     @include mixins.center
-    gap: 1rem
-    margin: 1rem 0
+    gap: 0.75rem
+    margin: 1.5rem 0
+    flex-wrap: wrap
+    width: 100%
+    max-width: 100%
 
     .social-btn
-        padding: .6rem
-        background-color: variables.$bg-color-secondary
+        padding: 0.75rem
+        background: variables.$bg-color-secondary
         border-radius: variables.$card-border-radius
-        color:#333
         @include mixins.center
+        width: 44px
+        height: 44px
+        transition: all 0.3s ease
+        border: 1px solid rgba(255, 255, 255, 0.08)
+        box-shadow: variables.$shadow-sm
+        text-decoration: none
+
+        svg
+            font-size: 1.25rem
+            transition: transform 0.3s ease
+
+        &:hover
+            background: variables.$gradient-alt
+            transform: translateY(-3px)
+            box-shadow: variables.$shadow-md
+            border-color: transparent
+
+            svg
+                transform: scale(1.15)
+                color: variables.$text-color
 
     #Linkedin
-        color: #0589cf
+        svg
+            color: #0a66c2
+
+        &:hover svg
+            color: variables.$text-color
+
     #Github
-        color: #fff
+        svg
+            color: #ffffff
+
+        &:hover svg
+            color: variables.$text-color
+
     #Facebook
-        color: #069ef0
+        svg
+            color: #1877f2
+
+        &:hover svg
+            color: variables.$text-color
     
     #Instagram
-        color: #bc2a8b
+        svg
+            color: #e4405f
+
+        &:hover svg
+            color: variables.$text-color
 
     #Whatsapp
-        color: #03e916
+        svg
+            color: #25d366
+
+        &:hover svg
+            color: variables.$text-color
 
     #Email
-        color: #ee2828
-    
-    :hover
-        background: variables.$gradient
-        
-        >svg
+        svg
+            color: #ea4335
+
+        &:hover svg
             color: variables.$text-color
+
+    @media (max-width: variables.$bp-md)
+        gap: 0.625rem
+        margin: 1.25rem 0
+
+        .social-btn
+            width: 40px
+            height: 40px
+            padding: 0.625rem
+
+            svg
+                font-size: 1.1rem
+
+    @media (min-width: variables.$bp-lg)
+        gap: 0.875rem
+
+        .social-btn
+            width: 48px
+            height: 48px
+            padding: 0.875rem
+
+            svg
+                font-size: 1.35rem

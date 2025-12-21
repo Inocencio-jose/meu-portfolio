@@ -1,0 +1,76 @@
+@use '../variables' as variables
+
+.technologies-section
+  padding: 6rem 0
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%)
+
+  @media (max-width: variables.$bp-md)
+    padding: 4rem 0
+
+  .technologies-grid
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+    gap: 2rem
+    margin-top: 3rem
+
+    @media (max-width: variables.$bp-md)
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+      gap: 1.5rem
+      margin-top: 2rem
+
+    @media (max-width: variables.$bp-sm)
+      grid-template-columns: 1fr
+
+  .tech-card
+    background: variables.$bg-color
+    padding: 2rem
+    border-radius: variables.$card-border-radius
+    text-align: center
+    transition: all 0.3s ease
+    border: 1px solid rgba(255, 255, 255, 0.1)
+    box-shadow: variables.$shadow-sm
+
+    &:hover
+      transform: translateY(-8px)
+      box-shadow: variables.$shadow-lg
+      border-color: rgba(255, 255, 255, 0.2)
+
+    .tech-icon
+      font-size: 4rem
+      margin-bottom: 1rem
+      display: flex
+      justify-content: center
+      align-items: center
+
+      @media (max-width: variables.$bp-sm)
+        font-size: 3.5rem
+
+      &#html svg
+        color: #E44d26
+      &#css svg
+        color: #1572b6
+      &#js svg
+        color: #f0db4f
+      &#node svg
+        color: #83cd29
+      &#mysql svg
+        color: #00758f
+      &#react svg
+        color: #61dafb
+      &#php svg
+        color: #777bb4
+      &#sass svg
+        color: #cc6699
+
+    h3
+      font-size: 1.25rem
+      font-weight: 600
+      margin-bottom: 0.75rem
+      color: variables.$text-color-light
+
+    p
+      color: variables.$text-color-secondary
+      font-size: 0.95rem
+      line-height: 1.6
+      margin: 0
+

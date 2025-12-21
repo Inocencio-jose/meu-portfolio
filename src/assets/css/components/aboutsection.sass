@@ -1,0 +1,23 @@
+@use '../variables' as variables
+
+.about-section
+  padding: 6rem 0
+  background: variables.$bg-color
+
+  @media (max-width: variables.$bp-md)
+    padding: 4rem 0
+
+  .about-content
+    max-width: 800px
+    margin: 0 auto
+
+    p
+      font-size: 1.1rem
+      line-height: 1.9
+      color: variables.$text-color-secondary
+      text-align: justify
+
+      @media (max-width: variables.$bp-md)
+        font-size: 1rem
+        text-align: left
+

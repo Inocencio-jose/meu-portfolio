@@ -1,29 +1,89 @@
 @use "../variables" as variables
 @use '../mixins' as mixins
+
 #sidebar
-    background-color: variables.$bg-color
-    flex: 1 1 0
+    background: variables.$bg-color
+    flex: 1 1 350px
     border-radius: variables.$container-border-radius
     display: flex
     align-items: center
     flex-direction: column
     text-align: center
     position: relative
-    padding: 3rem 0
+    padding: 2.5rem 1.5rem
+    min-width: 280px
+    box-shadow: variables.$shadow-lg
+    border: 1px solid rgba(255, 255, 255, 0.05)
+    backdrop-filter: blur(10px)
+    transition: transform 0.3s ease, box-shadow 0.3s ease
+
+    &:hover
+        transform: translateY(-4px)
+        box-shadow: variables.$shadow-xl
 
     img
-        max-width: 70%
-        max-height: 20%
-        border-radius: variables.$container-border-radius
-        position: absolute
-        top: 3rem
+        width: 180px
+        height: 180px
+        border-radius: 50%
+        object-fit: cover
+        border: 4px solid transparent
+        background: variables.$gradient
+        padding: 3px
+        margin-bottom: 1.5rem
+        box-shadow: variables.$shadow-md
     
     .title
-        color: variables.$text-color-secondary
-        background-color: variables.$bg-color-secondary
+        color: variables.$text-color-light
+        background: variables.$gradient-alt
         border-radius: variables.$card-border-radius
-        margin-top: 12rem
-        padding: .8rem 1.2rem
+        padding: 0.75rem 1.5rem
+        font-weight: 600
+        font-size: 1rem
+        margin-bottom: 1.5rem
+        letter-spacing: 0.5px
+        text-transform: uppercase
+        box-shadow: variables.$shadow-sm
 
     .btn
         @include mixins.btn
+        width: 100%
+        max-width: 280px
+        margin-top: 1rem
+        font-weight: 600
+        transition: all 0.3s ease
+        border: none
+        cursor: pointer
+        font-size: 0.95rem
+        letter-spacing: 0.3px
+        box-shadow: variables.$shadow-md
+
+        &:hover
+            transform: translateY(-2px)
+            box-shadow: variables.$shadow-lg
+
+    @media (max-width: variables.$bp-md)
+        flex: 1 1 100%
+        padding: 2rem 1.5rem
+        min-width: auto
+        width: 100%
+        img
+            width: 140px
+            height: 140px
+            margin-bottom: 1rem
+        .title
+            margin-top: 0
+            padding: 0.6rem 1.2rem
+            font-size: 0.9rem
+        .btn
+            width: 100%
+            max-width: 100%
+
+    @media (min-width: variables.$bp-lg)
+        flex: 1 1 380px
+        img
+            width: 200px
+            height: 200px
+
+    @media (min-width: variables.$bp-xl)
+        flex: 1 1 400px
+        padding: 3rem 2rem

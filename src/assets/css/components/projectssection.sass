@@ -1,0 +1,205 @@
+@use '../variables' as variables
+
+.projects-section
+  padding: 6rem 0
+  background: variables.$bg-color
+
+  @media (max-width: variables.$bp-md)
+    padding: 4rem 0
+
+  .projects-grid
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr))
+    gap: 2rem
+    margin-top: 3rem
+
+    @media (max-width: variables.$bp-md)
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr))
+      gap: 1.5rem
+      margin-top: 2rem
+
+    @media (max-width: variables.$bp-sm)
+      grid-template-columns: 1fr
+
+  .project-card
+    background: variables.$bg-color-secondary
+    border-radius: variables.$card-border-radius
+    overflow: hidden
+    transition: all 0.3s ease
+    cursor: pointer
+    border: 1px solid rgba(255, 255, 255, 0.1)
+    box-shadow: variables.$shadow-sm
+
+    &:hover
+      transform: translateY(-8px)
+      box-shadow: variables.$shadow-lg
+      border-color: rgba(255, 255, 255, 0.2)
+
+    .project-image
+      position: relative
+      width: 100%
+      height: 250px
+      overflow: hidden
+
+      @media (max-width: variables.$bp-sm)
+        height: 200px
+
+      img
+        width: 100%
+        height: 100%
+        object-fit: cover
+        transition: transform 0.3s ease
+
+      &:hover img
+        transform: scale(1.1)
+
+      .status-badge
+        position: absolute
+        top: 1rem
+        right: 1rem
+        padding: 0.5rem 1rem
+        border-radius: 20px
+        font-size: 0.85rem
+        font-weight: 600
+        color: #fff
+
+        &.concluído,
+        &.concluídos
+          background: linear-gradient(135deg, #10b981 0%, #059669 100%)
+
+        &.ainda-em-desenvolvimento
+          background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%)
+
+    .project-content
+      padding: 1.5rem
+
+      h3
+        font-size: 1.5rem
+        font-weight: 600
+        margin-bottom: 0.75rem
+        color: variables.$text-color-light
+
+      p
+        color: variables.$text-color-secondary
+        line-height: 1.6
+        margin-bottom: 1rem
+        font-size: 0.95rem
+
+      .btn-read-more
+        color: variables.$text-color-light
+        font-weight: 600
+        background: none
+        border: none
+        cursor: pointer
+        padding: 0
+        font-size: 0.95rem
+        transition: all 0.3s ease
+
+        &:hover
+          background: variables.$gradient-alt
+          -webkit-background-clip: text
+          background-clip: text
+          -webkit-text-fill-color: transparent
+          color: transparent
+
+  .project-modal-overlay
+    position: fixed
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    background: rgba(0, 0, 0, 0.9)
+    display: flex
+    align-items: center
+    justify-content: center
+    z-index: 2000
+    backdrop-filter: blur(10px)
+    overflow-y: auto
+    padding: 2rem
+
+    @media (max-width: variables.$bp-sm)
+      padding: 1rem
+
+  .project-modal
+    background: variables.$bg-color
+    border-radius: variables.$container-border-radius
+    max-width: 800px
+    width: 100%
+    max-height: 90vh
+    overflow-y: auto
+    padding: 2.5rem
+    position: relative
+    box-shadow: variables.$shadow-xl
+    border: 1px solid rgba(255, 255, 255, 0.1)
+
+    @media (max-width: variables.$bp-sm)
+      padding: 1.5rem
+      max-height: 95vh
+
+    .close-btn
+      position: absolute
+      top: 1.5rem
+      right: 1.5rem
+      background: rgba(255, 255, 255, 0.1)
+      border: 1px solid rgba(255, 255, 255, 0.2)
+      border-radius: 50%
+      width: 40px
+      height: 40px
+      display: flex
+      align-items: center
+      justify-content: center
+      color: variables.$text-color-light
+      font-size: 1.5rem
+      cursor: pointer
+      transition: all 0.3s ease
+      line-height: 1
+
+      &:hover
+        background: rgba(255, 255, 255, 0.2)
+        transform: rotate(90deg)
+
+    img
+      width: 100%
+      height: auto
+      border-radius: variables.$card-border-radius
+      margin-bottom: 2rem
+
+    h2
+      font-size: 2rem
+      font-weight: 700
+      margin-bottom: 1rem
+      color: variables.$text-color-light
+
+      @media (max-width: variables.$bp-sm)
+        font-size: 1.5rem
+
+    .modal-description
+      color: variables.$text-color-secondary
+      line-height: 1.8
+      margin-bottom: 1.5rem
+      font-size: 1.05rem
+
+    .modal-status
+      color: variables.$text-color-secondary
+      margin-bottom: 1.5rem
+
+      .status-badge
+        margin-left: 0.5rem
+
+    .btn-link
+      display: inline-block
+      margin-right: 1rem
+      margin-top: 0.5rem
+      padding: 0.75rem 1.5rem
+      background: variables.$gradient
+      color: variables.$text-color
+      text-decoration: none
+      border-radius: 25px
+      font-weight: 600
+      transition: all 0.3s ease
+      box-shadow: variables.$shadow-sm
+
+      &:hover
+        transform: translateY(-2px)
+        box-shadow: variables.$shadow-md
+
