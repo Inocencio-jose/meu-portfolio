@@ -7,6 +7,12 @@
   @media (max-width: variables.$bp-md)
     padding: 4rem 0
 
+  .category-title
+    color: variables.$text-color-light
+    font-size: 1.25rem
+    font-weight: 600
+    margin: 1rem 0
+
   .technologies-grid
     display: grid
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
@@ -61,6 +67,16 @@
         color: #777bb4
       &#sass svg
         color: #cc6699
+      &#git svg
+        color: #F05032
+      &#github svg
+        color: #ffffff
+      &#tailwind svg
+        color: #38bdf8
+      &#materialize svg
+        color: #ee6e73
+      &#bootstrap svg
+        color: #7952b3
 
     h3
       font-size: 1.25rem
@@ -73,4 +89,20 @@
       font-size: 0.95rem
       line-height: 1.6
       margin: 0
+
+.soft-skills-section
+  padding: 4rem 0
+  .soft-skills-grid
+    display: flex
+    flex-wrap: wrap
+    gap: .8rem
+    margin-top: 1.5rem
+  .soft-skill
+    background: variables.$bg-color
+    color: variables.$text-color-light
+    border: 1px solid rgba(255, 255, 255, 0.1)
+    padding: .6rem .9rem
+    border-radius: 999px
+    font-size: .95rem
+    box-shadow: variables.$shadow-sm
 

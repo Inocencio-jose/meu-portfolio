@@ -3,6 +3,11 @@
 
 .technologies-container
     margin-bottom: 2rem
+    .category-title
+        color: variables.$text-color-light
+        font-size: 1.25rem
+        font-weight: 600
+        margin: 1rem 0
 
     h2
         color: variables.$text-color-light
@@ -99,6 +104,21 @@
         #react
             svg
                 color: #61dafb
+        #git
+            svg
+                color: #F05032
+        #github
+            svg
+                color: #ffffff
+        #tailwind
+            svg
+                color: #38bdf8
+        #materialize
+            svg
+                color: #ee6e73
+        #bootstrap
+            svg
+                color: #7952b3
 
     @media (min-width: variables.$bp-sm)
         .technologies-grid
@@ -135,3 +155,23 @@
 
             .technology-card
                 padding: 2.25rem
+
+.soft-skills-container
+    margin-top: 2rem
+    h2
+        color: variables.$text-color-light
+        font-size: 2rem
+        font-weight: 700
+        margin-bottom: 1rem
+    .soft-skills-grid
+        display: flex
+        flex-wrap: wrap
+        gap: .8rem
+    .soft-skill
+        background: variables.$bg-color-secondary
+        color: variables.$text-color-light
+        border: 1px solid rgba(255, 255, 255, 0.08)
+        padding: .6rem .9rem
+        border-radius: 999px
+        font-size: .95rem
+        box-shadow: variables.$shadow-sm
